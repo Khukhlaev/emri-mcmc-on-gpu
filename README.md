@@ -4,6 +4,8 @@ Simple script to perform mcmc computations with EMRI waveforms on gpu.
 
 Sangria dataset should be in the same directory (or you should change sangria path in ```setup_with_sangria``` function in ```likelihood.py```)
 
+In order to perform run without sangria just change ```setup_with_sangria``` to ```setup``` in ```main.py```
+
 ## Usage
 
 To start new run:
