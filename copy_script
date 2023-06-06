@@ -1,0 +1,12 @@
+# #!/bin/bash
+copy_path="save_files/10000_iter/";
+cp chain_0.npy $copy_path;
+cp chain_1.npy $copy_path;
+cp chain_2.npy $copy_path;
+cp chain_3.npy $copy_path;
+cp chain_4.npy $copy_path;
+cp stats_0.pkl $copy_path;
+cp stats_1.pkl $copy_path;
+cp stats_2.pkl $copy_path;
+cp stats_3.pkl $copy_path;
+cp stats_4.pkl $copy_path;
