@@ -183,7 +183,7 @@ class LikelihoodCalculator:
 
         A, E = self._get_tdi(point)
 
-        sangria_fn = "../mcmc/LDC2_sangria_training_v2.h5"
+        sangria_fn = "LDC2_sangria_training_v2.h5"
         tdi_ts = TDI.load(sangria_fn, name="obs/tdi")
         tdi_mbhb_ts = TDI.load(sangria_fn, name="sky/mbhb/tdi")
 
