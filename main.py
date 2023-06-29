@@ -83,7 +83,7 @@ def main(parser):
 
     start = time.time()
     niter = args.niter
-    c = S.run_mcmc(niter, pSwap=0.95, printN=1, multiproc=True, n0_swap=500)
+    c = S.run_mcmc(niter, pSwap=0.95, printN=100, multiproc=True, n0_swap=500)
     end = time.time()
     print("Time to complete", niter, "iterations:", round((end - start) / 60, 3), "minutes")
 
