@@ -1,0 +1,10 @@
+# Config file for MCMC run, might be updated later
+
+run:
+
+  resume: False       # Whether to resume current run or start a new one
+  use_gpu: False      # Whether to use gpu for current run
+
+  n_iter: 20000       # Number of iterations
+  maxT: 50            # Maximum temperature
+  n_chains: 5         # Number of chains
