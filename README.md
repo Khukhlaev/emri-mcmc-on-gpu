@@ -2,7 +2,7 @@
 
 Simple script to perform mcmc computations with EMRI waveforms on gpu.
 
-Sangria dataset should be in the same directory (or you should change sangria path in ```setup_with_sangria``` function in ```likelihood.py```)
+Sangria dataset path can be set in ```config.yaml```
 
 ## Usage
 
@@ -13,7 +13,7 @@ To start new run:
 python main.py
 ```
 
-To resume existing run (with save files in the same directory) change ```resume``` in ```config.yaml``` to ```True```
+To resume existing run change ```resume``` in ```config.yaml``` to ```True``` and ```save_files``` to path to save files, from which you want to resume
 
 ## Likelihood on cpu
 

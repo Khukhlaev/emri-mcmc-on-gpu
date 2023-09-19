@@ -49,7 +49,9 @@ def main():
               [dist * 0.5, dist * 1.5], [-1.0, 1.0],
               [0.0, 2 * np.pi], [-1.0, 1.0], [0.0, 2 * np.pi]]
 
-    calculator = lh.LikelihoodCalculator(Phi_phi0, Phi_theta0, Phi_r0, T, dt, priors, use_gpu=use_gpu)
+    sangria_path = config['setup']['path']['sangria']
+
+    calculator = lh.LikelihoodCalculator(Phi_phi0, Phi_theta0, Phi_r0, T, dt, priors, sangria_path, use_gpu=use_gpu)
     calculator.setup_with_sangria([M, mu, a, p0, e0, x0, dist, qS, phiS, qK, phiK])
 
     names = ["M", "mu", "spin", "p0", "e0", "x0", "dist", "cos(qS)", "phiS", "cos(qK)", "phiK"]
@@ -71,8 +73,9 @@ def main():
     print("Available cores:", mp.cpu_count())
 
     if resume:
-        path = "."
-        filenames = [path + "/chain_" + str(i) + ".npy" for i in range(n_chains)]
+        print("Resuming existing run")
+        path = config['setup']['path']['save_files']
+        filenames = [f"{path}chain_{i}.npy" for i in range(n_chains)]
         S.resume(filenames)
 
     start = time.time()

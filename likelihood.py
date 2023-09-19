@@ -70,7 +70,7 @@ def crop_data(data, freq, fmin, fmax):
 
 class LikelihoodCalculator:
 
-    def __init__(self, Phi_phi0, Phi_theta0, Phi_r0, T, dt, priors, use_gpu=False):
+    def __init__(self, Phi_phi0, Phi_theta0, Phi_r0, T, dt, priors, sangria_path, use_gpu=False):
         self.use_gpu = use_gpu
 
         self.Phi_phi0 = Phi_phi0
@@ -80,6 +80,8 @@ class LikelihoodCalculator:
         self.dt = dt  # in seconds
 
         self.priors = priors
+
+        self.sangria_fn = sangria_path
 
         self.dA = None  # in freq. domain
         self.dE = None  # in freq. domain
@@ -183,9 +185,8 @@ class LikelihoodCalculator:
 
         A, E = self._get_tdi(point)
 
-        sangria_fn = "LDC2_sangria_training_v2.h5"
-        tdi_ts = TDI.load(sangria_fn, name="obs/tdi")
-        tdi_mbhb_ts = TDI.load(sangria_fn, name="sky/mbhb/tdi")
+        tdi_ts = TDI.load(self.sangria_fn, name="obs/tdi")
+        tdi_mbhb_ts = TDI.load(self.sangria_fn, name="sky/mbhb/tdi")
 
         tdi_ts -= tdi_mbhb_ts
         tdi_ts.XYZ2AET()
